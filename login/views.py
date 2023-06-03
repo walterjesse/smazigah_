@@ -7,8 +7,10 @@ from login.forms import SignupForm
 from django.views.decorators.csrf import csrf_protect
 
 
+
 def home(request):
     return render(request, 'home.html')
+
 
 @csrf_protect
 def register(request):
