@@ -13,7 +13,6 @@ def home(request):
 
 
 @csrf_exempt
-@csrf_protect
 def register(request):
     if request.method == 'POST':
         form = SignupForm(request.POST)
@@ -47,7 +46,6 @@ def register(request):
 
 
 @csrf_exempt
-@csrf_protect
 def login_view(request):
     if request.method == "POST":
         try:
@@ -73,7 +71,6 @@ from .forms import ContactForm
 
 
 @csrf_exempt
-@csrf_protect
 def contact_form(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
