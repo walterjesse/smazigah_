@@ -4,12 +4,14 @@ from django.contrib import messages
 from django.core.mail import send_mail
 from django.shortcuts import render, redirect
 from login.forms import SignupForm
+from django.views.decorators.csrf import csrf_protect
 
+@csrf_protect
 
 def home(request):
     return render(request, 'home.html')
 
-
+@csrf_protect
 def register(request):
     if request.method == 'POST':
         form = SignupForm(request.POST)
@@ -41,7 +43,7 @@ def register(request):
 
     return render(request, 'register.html', {'form': form})
 
-
+@csrf_protect
 def login_view(request):
     if request.method == "POST":
         try:
@@ -65,7 +67,7 @@ def login_view(request):
 from django.shortcuts import render, redirect
 from .forms import ContactForm
 
-
+@csrf_protect
 def contact_form(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
